@@ -1,4 +1,4 @@
-use std::cmp::max;
+use std::{cmp::max, thread, time::Duration};
 
 #[derive(Debug, Clone)]
 struct Node {
@@ -139,6 +139,7 @@ impl AVLTree {
 
 fn main() {
     println!("Program started, sleeping for 10 seconds before operations...");
+    thread::sleep(Duration::from_secs(30));
 
     let mut tree = AVLTree::new();
     println!("AVL Tree created.");
@@ -156,7 +157,7 @@ fn main() {
     println!("30 inserted.");
 
     let search_result = tree.search_key(20);
-    println!("Search 20: {}", search_result); // Should print true
+    println!("Search 20: {}", search_result);
     if search_result {
         println!("20 found in the tree.");
     } else {
@@ -164,6 +165,7 @@ fn main() {
     }
 
     println!("Operations completed. Sleeping for another 10 seconds.");
+    thread::sleep(Duration::from_secs(10));
 
     println!("Program execution completed.");
 }
